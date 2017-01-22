@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Seeding <small>Seeding will delete exisiting records!</small></h2>
+    <button class="ui green button icon">
+        <i class="fa fa-database" id="userContext"></i>
+         Seed User Context
+    </button>
+
+
+<script src="/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $(".button").click(function () {
+        $(".button").addClass("loading");
+        $.ajax({
+            url: '/Seed/UserContext',
+            success: function () {
+                $(".button").removeClass("loading");
+                $(".button").html("<i class='fa fa-check'></i> Success");
+            },
+            error: function () {
+                $(".button").removeClass("loading");
+                $(".button").html("<i class='fa fa-wrong'></i> Failed")
+                $(".button").removeClass("green");
+                $(".button").addClass("red");
+            }
+
+        })
+    });
+</script>
