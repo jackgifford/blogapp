@@ -15,10 +15,14 @@
     $(".button").click(function () {
         $(".button").addClass("loading");
         $.ajax({
+            type: "POST",
             url: '/Seed/UserContext',
-            success: function () {
-                $(".button").removeClass("loading");
-                $(".button").html("<i class='fa fa-check'></i> Success");
+            success: function (data) {
+                if (data == "True") {
+                    $(".button").removeClass("loading");
+                    $(".button").html("<i class='fa fa-check'></i> Success");
+                }
+
             },
             error: function () {
                 $(".button").removeClass("loading");

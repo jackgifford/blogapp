@@ -1,4 +1,5 @@
-﻿using blogsoftware.Models;
+﻿
+using blogsoftware.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,18 +16,12 @@ namespace blogsoftware.Controllers
             return View();
         }
 
-        public void UserContext()
+        [HttpPost]
+        public bool UserContext()
         {
-            var userContext = new UserContext();
-            var user = new User
-            {
-                Username = "test",
-                PasswordHash = "test"
-            };
 
-            userContext.Users.Add(user);
-            userContext.SaveChanges();
 
+            return true;
         }
     }
 }

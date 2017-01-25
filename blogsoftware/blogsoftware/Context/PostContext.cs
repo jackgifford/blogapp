@@ -5,10 +5,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace blogsoftware
+namespace blogsoftware.Context
 {
-    public class UserContext : DbContext
+    public class AppContext : DbContext
     {
+        public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }

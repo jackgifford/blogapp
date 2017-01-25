@@ -7,10 +7,10 @@ using System.Web;
 
 namespace blogsoftware.Models
 {
-    public class User
+    public class Post
     {
-        public int UserID { get; set; }
-        public string Username { get; set; }
-        public string PasswordHash { get; set; }
+        public Guid PostID { get; set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
     }
 }

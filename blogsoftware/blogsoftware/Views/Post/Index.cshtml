@@ -1,0 +1,15 @@
+﻿@model IEnumerable<blogsoftware.Models.Post>
+@{
+    ViewBag.Title = "Posts";
+}
+
+<h2>Posts</h2>
+
+@foreach (var item in Model)
+{
+    <div class="ui stacked segment">
+        <h3>@item.Title</h3>
+        <p>@item.Body</p>
+        <a class="ui button" href="Post/Item/@item.PostID">Open</a>
+    </div>
+}
