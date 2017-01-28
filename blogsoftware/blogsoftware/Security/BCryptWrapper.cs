@@ -17,9 +17,9 @@ namespace blogsoftware.Security
             return BCrypt.HashPassword(password, salt);
         }
 
-        public bool CheckPassword(string password)
+        public bool CheckPassword(string passwordActual, string passwordUser)
         {
-            throw new NotImplementedException();
+            return BCrypt.CheckPassword(passwordUser, passwordActual);
         }
 
     }

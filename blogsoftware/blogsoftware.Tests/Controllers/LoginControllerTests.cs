@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web.Mvc;
 using blogsoftware.Controllers;
 using blogsoftware.Models;
 using blogsoftware.Security;
@@ -50,10 +48,11 @@ namespace blogsoftware.Tests.Controllers
 
             //Act
             var ctrl = new LoginController(bcryptMock.Object, mockContext.Object);
-            var createdAccount = ctrl.CreateAccount(userToTest);
+            var createdAccount = ctrl.CreateAccount(userToTest) as RedirectToRouteResult;
 
-
-            Assert.AreEqual(true, createdAccount);
+            Assert.NotNull(createdAccount);
+            Assert.AreEqual(createdAccount.RouteValues["action"], "Index");
+            Assert.IsInstanceOf(typeof(RedirectToRouteResult), createdAccount);
         }
 
         [Test]
@@ -92,7 +91,7 @@ namespace blogsoftware.Tests.Controllers
             var createdAccount = ctrl.CreateAccount(userToTest);
 
 
-            Assert.AreEqual(false, createdAccount);
+            Assert.IsInstanceOf(typeof(ViewResult), createdAccount);
         }
     }
 }

@@ -28,16 +28,25 @@
         @Html.ActionLink("Seed", "Index", "Seed", null, new { @class ="ui item"})
 
         <div class="right menu">
-            @if (User.Identity.IsAuthenticated)
-            {
-                <a class="ui item">Hello, @User.Identity.Name</a>
+            @{
+                if (Session["Logged in"] != null)
+                {
+                    var isLogged = (bool)Session["Logged in"];
+                    if (isLogged)
+                    {
+                        <a class="ui item">Hello, @Session["Username"]</a>
+                    }
+
+
+                }
+                else
+                {
+                    @Html.ActionLink("Login", "Index", "Login", null, new { @class = "ui item" })
+                }
             }
 
-            else
-            {
-                @Html.ActionLink("Login", "Index", "Login", null, new { @class = "ui item" })
-            }
-            
+           
+
         </div>
     </div>
         </div>
