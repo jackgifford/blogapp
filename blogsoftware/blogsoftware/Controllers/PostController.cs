@@ -16,6 +16,12 @@ namespace blogsoftware.Controllers
             return View(db.Posts.ToList());
         }
 
+        public string Item(Guid itemIndex)
+        {
+
+            return itemIndex.ToString();
+        }
+
 
     }
 }

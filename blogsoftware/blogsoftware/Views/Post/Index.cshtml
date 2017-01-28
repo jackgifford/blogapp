@@ -1,4 +1,5 @@
-﻿@model IEnumerable<blogsoftware.Models.Post>
+﻿@using System.Text
+@model IEnumerable<blogsoftware.Models.Post>
 @{
     ViewBag.Title = "Posts";
 }
@@ -9,7 +10,17 @@
 {
     <div class="ui stacked segment">
         <h3>@item.Title</h3>
-        <p>@item.Body</p>
-        <a class="ui button" href="Post/Item/@item.PostID">Open</a>
+        @{
+            var toShow = new StringBuilder();
+            for (var i = 0; i < 300; i++)
+            {
+                if (i < item.Body.Length)
+                {
+                    toShow.Append(@item.Body[i]);
+                }
+            }
+        }
+        <p>@toShow...</p>
+        <a class="ui button" href="item/?itemIndex=@item.PostID">Open</a>
     </div>
 }

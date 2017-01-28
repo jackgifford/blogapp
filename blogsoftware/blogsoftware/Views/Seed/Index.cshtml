@@ -17,20 +17,18 @@
         $.ajax({
             type: "POST",
             url: '/Seed/UserContext',
-            success: function (data) {
-                if (data == "True") {
+            success: function(data) {
+                if (data === "True") {
                     $(".button").removeClass("loading");
                     $(".button").html("<i class='fa fa-check'></i> Success");
                 }
-
             },
-            error: function () {
+            error: function() {
                 $(".button").removeClass("loading");
-                $(".button").html("<i class='fa fa-wrong'></i> Failed")
+                $(".button").html("<i class='fa fa-wrong'></i> Failed");
                 $(".button").removeClass("green");
                 $(".button").addClass("red");
             }
-
-        })
+        });
     });
 </script>

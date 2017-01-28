@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201701250114488_Second.Designer.cs">
       <DependentUpon>201701250114488_Second.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701270846222_db to guid.cs" />
+    <Compile Include="Migrations\201701270846222_db to guid.Designer.cs">
+      <DependentUpon>201701270846222_db to guid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\User.cs" />
@@ -247,6 +251,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701250114488_Second.resx">
       <DependentUpon>201701250114488_Second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701270846222_db to guid.resx">
+      <DependentUpon>201701270846222_db to guid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
