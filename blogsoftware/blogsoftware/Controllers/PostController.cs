@@ -13,7 +13,7 @@ namespace blogsoftware.Controllers
         // GET: Post
         public ActionResult Index()
         {
-            return View(db.Posts.ToList());
+            return View(db.Users.First(x => x.Username == "Admin").Posts.ToList());
         }
 
         public string Item(Guid itemIndex)

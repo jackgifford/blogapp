@@ -9,7 +9,6 @@ namespace blogsoftware.Context
 {
     public class AppContext : DbContext
     {
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

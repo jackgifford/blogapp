@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using blogsoftware.Models;
+
 namespace blogsoftware.Migrations
 {
     using System;
@@ -15,14 +18,20 @@ namespace blogsoftware.Migrations
         protected override void Seed(blogsoftware.Context.AppContext context)
         {
 
+            var userBlogs = new List<Post>
+            {
+                new Post {Body = "Test1", Title = "Test1"},
+                new Post {Body = "Test2", Title = "Test2"},
+                new Post {Body = "Test3", Title = "Test3"},
+                new Post {Body = "Test4", Title = "Test4"}
+            };
+
             context.Users.Add(
-                new Models.User { Username = "Admin", PasswordHash = "Admin" });
+                new User { Username = "Admin", PasswordHash = "Admin", Posts = userBlogs });
 
             context.SaveChanges();
 
-            context.Posts.Add(
-                new Models.Post { Title = "Test 1", Body = "Hello" });
-            context.SaveChanges();
+            
 
             //  This method will be called after migrating to the latest version.
 

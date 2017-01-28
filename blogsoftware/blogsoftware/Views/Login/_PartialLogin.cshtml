@@ -1,0 +1,22 @@
+﻿@model blogsoftware.Models.User
+
+<div class="column twelve wide">
+    @using (Html.BeginForm())
+    {
+        <h2 class="ui header">@ViewBag.Title</h2>
+            <div class="ui large form">
+                <div class="stacked segment">
+                    <div class="field">
+                        @Html.TextBoxFor(model => model.Username, new { @placeholder = "Username" })
+                    </div>
+                    <div class="field">
+                        @Html.PasswordFor(model => model.PasswordHash, new { @placeholder = "Password" })
+                    </div>
+                    <input class="ui button  green" type="submit" value="@ViewBag.Value" />
+                </div>
+
+            </div>
+
+    }
+</div>
+
