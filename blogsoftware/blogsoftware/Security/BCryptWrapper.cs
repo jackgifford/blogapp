@@ -21,6 +21,5 @@ namespace blogsoftware.Security
         {
             return BCrypt.CheckPassword(passwordUser, passwordActual);
         }
-
     }
 }

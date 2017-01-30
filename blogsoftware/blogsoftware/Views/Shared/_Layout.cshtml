@@ -34,7 +34,18 @@
                     var isLogged = (bool)Session["Logged in"];
                     if (isLogged)
                     {
-                        <a class="ui item">Hello, @Session["Username"]</a>
+                        
+                            <div class="ui item simple dropdown">
+                                Hello, @Session["Username"]
+                                <div class="ui menu">
+                                    @Html.ActionLink("Logout", "Logout", "Login", null, new { @class="ui item"})
+                                    <div class="ui item">Choice 2</div>
+                                    <div class="ui item">Choice 3</div>
+                                </div>
+                            </div>
+                        
+
+                        
                     }
 
 

@@ -27,7 +27,8 @@ namespace blogsoftware
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/site.css",
                       "~/Content/semantic.min.css",
-                      "~/Content/fontawesome.css"));
+                      "~/Content/fontawesome.css",
+                      "~/Content/css/styles.min.css"));
         }
     }
 }

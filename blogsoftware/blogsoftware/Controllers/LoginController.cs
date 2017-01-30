@@ -36,8 +36,8 @@ namespace blogsoftware.Controllers
         {
             using (_db)
             {
-                var userFromDb = _db.Users.First(x => x.Username == user.Username);
-                if (userFromDb != null)
+                var userFromDb = _db.Users.FirstOrDefault(x => x.Username == user.Username);
+                if (userFromDb != null && user.PasswordHash != null)
                 {
                     if (_bCryptWrapper.CheckPassword(userFromDb.PasswordHash, user.PasswordHash))
                     {
@@ -47,6 +47,7 @@ namespace blogsoftware.Controllers
                     }
                 }
             }
+            ModelState.AddModelError("", "Username or password was incorrect.");
             return View();
         }
 
@@ -78,7 +79,15 @@ namespace blogsoftware.Controllers
                 }                
             }
 
+            ModelState.AddModelError("", "Sorry that username has already been taken.");
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session["Logged in"] = null;
+            Session["Username"] = null;
+            return RedirectToAction("Index", "Home");
         }
     }
 }
